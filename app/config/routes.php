@@ -15,8 +15,8 @@ use flight\net\Router;
 **/
 
 //AUTO
-$router->get("/", function () {
-    Flight::redirect("/login/user");                                                    //Automaticly send to this path at the beginning
+$router->get('/', function () {
+    Flight::render('landing/index');
 });
 
 //LOGIN, btw I made it auth for authentication so that login.php won't be confused with the login/ directory

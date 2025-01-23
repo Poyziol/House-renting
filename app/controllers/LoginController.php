@@ -19,8 +19,8 @@ class LoginController
 	//send to login.php and replace $page with user
 	public function user()
 	{
-		$data = ['page' => "user"];
-		Flight::render('auth/login', $data);
+		$data = ['page' => "signin_user"];
+		Flight::render('auth/body', $data);
 	}
 
 	//send to login.php and replace $page with admin
