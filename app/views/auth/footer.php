@@ -1,6 +1,6 @@
 <footer>
     <div class="footer-container">
-        <p>&copy; 2025 Real Estate. All rights reserved.</p>
+        <p>&copy; <?= date('Y') ?> Real Estate. All rights reserved.</p>
         <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
