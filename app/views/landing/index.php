@@ -92,7 +92,7 @@ $baseUrl = Flight::get('flight.base_url');
     </section>
 
     <!-- Footer -->
-    <?php include "footer.html"; ?>
+    <?php include "footer.php"; ?>
 
     <!-- Jquery -->
     <script src="<?= $baseUrl; ?>/assets/framework/js/jquery-3.7.1.min.js"></script>
