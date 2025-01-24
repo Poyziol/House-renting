@@ -75,9 +75,18 @@ class HouseModel
             LEFT JOIN house_photo_habitation p ON h.habitation_id = p.habitation_id
             WHERE h.description LIKE ? OR h.quartier LIKE ? OR t.nom_type LIKE ?
             GROUP BY h.habitation_id
+        "; // More precision but avelao any
+        $sql = "
+            SELECT h.habitation_id, h.type_id, t.nom_type, h.chambres, h.loyer_par_jour, h.quartier, h.description, MIN(p.photo_url) AS photo_url
+            FROM house_habitation h
+            JOIN house_type_habitation t ON h.type_id = t.type_id
+            LEFT JOIN house_photo_habitation p ON h.habitation_id = p.habitation_id
+            WHERE h.description LIKE ?
+            GROUP BY h.habitation_id
         ";
         $STH = $this->db->prepare($sql);
-        $STH->execute([$query, $query, $query]);
+        // $STH->execute([$query, $query, $query]);
+        $STH->execute([$query]);
         return $STH->fetchAll(PDO::FETCH_ASSOC);
     }
 

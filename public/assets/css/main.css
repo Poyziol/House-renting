@@ -1,0 +1,8 @@
+.dropdown-item img {
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-item:hover img {
+    transform: scale(1.2); /* Slight zoom on hover */
+}

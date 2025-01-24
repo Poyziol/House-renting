@@ -14,20 +14,27 @@
         </p>
 
 
-        <!-- Reservation Form -->
+        `<!-- Reservation Form -->
         <form action="" id="reservationForm" class="mt-4 p-3 border rounded shadow-sm">
             <h4 class="mb-3" data-translate="reserve_this_house">Reserve this house</h4>
-            <div class="mb-3">
-                <label for="arrivalDate" class="form-label" data-translate="arrival_date">Arrival date</label>
-                <input type="date" id="arrivalDate" name="arrivalDate" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="departureDate" class="form-label" data-translate="departure_date">Departure date</label>
-                <input type="date" id="departureDate" name="departureDate" class="form-control" required>
+            <div class="row g-3">
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="arrivalDate" class="form-label" data-translate="arrival_date">Arrival date</label>
+                        <input type="date" id="arrivalDate" name="arrivalDate" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="departureDate" class="form-label" data-translate="departure_date">Departure
+                            date</label>
+                        <input type="date" id="departureDate" name="departureDate" class="form-control" required>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary w-100" data-translate="reserve_now">Reserve Now</button>
             <div id="responseMessage" class="mt-2 d-none"></div>
-        </form>
+        </form>`
 
     </div>
 
