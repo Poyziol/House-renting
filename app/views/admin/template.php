@@ -83,13 +83,13 @@ $baseUrl = Flight::get('flight.base_url');
             <div class="offcanvas-body">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $baseUrl ?>/auth/user" data-translate="login_user_account">Login in a user account</a>
+                        <a class="nav-link" href="<?= $baseUrl ?>/login/user" data-translate="login_user_account">Login in a user account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $baseUrl ?>/auth/admin" data-translate="login_admin">Login as another admin</a>
+                        <a class="nav-link" href="<?= $baseUrl ?>/login/admin" data-translate="login_admin">Login as another admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $baseUrl ?>/auth/logout" data-translate="logout">Logout</a>
+                        <a class="nav-link" href="<?= $baseUrl ?>/login/logout" data-translate="logout">Logout</a>
                     </li>
                 </ul>
             </div>
