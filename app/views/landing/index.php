@@ -52,10 +52,11 @@ $baseUrl = Flight::get('flight.base_url');
     <!-- Landing Section -->
     <section class="landing-section text-center py-5 bg-light">
         <div class="container">
-            <h1 class="display-4">Find Your Dream Home</h1>
-            <p class="lead">Explore our listings and discover the perfect property for you.</p>
-            <button class="btn btn-primary btn-lg" onclick="location.href='<?= $baseUrl; ?>/login/user'">Start
-                Now</button>
+            <h1 class="display-4" data-translate="welcome_message">Find Your Dream Home</h1>
+            <p class="lead" data-translate="welcome_description">Explore our listings and discover the perfect property
+                for you.</p>
+            <button class="btn btn-primary btn-lg" onclick="location.href='<?= $baseUrl; ?>/login/user'"
+                data-translate="get_started">Start Now</button>
         </div>
     </section>
 
@@ -77,12 +78,12 @@ $baseUrl = Flight::get('flight.base_url');
                 <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden" data-translate="previous">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden" data-translate="next">Next</span>
                 </button>
             </div>
         </div>
@@ -92,9 +93,10 @@ $baseUrl = Flight::get('flight.base_url');
     <section class="about-section text-center py-5 bg-light">
         <div class="container">
             <div class="bg-dark bg-opacity-50 p-4 rounded">
-                <h2 class="text-white">About Us</h2>
-                <p class="text-white">We are committed to helping you find the perfect property. With years of
-                    experience in the real estate market, we bring you the best listings and customer service.</p>
+                <h2 class="text-white" data-translate="about_us">About Us</h2>
+                <p class="text-white" data-translate="about_description">We are committed to helping you find the
+                    perfect property. With years of experience in the real estate market, we bring you the best listings
+                    and customer service.</p>
             </div>
         </div>
     </section>

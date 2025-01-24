@@ -3,7 +3,7 @@ $baseUrl = Flight::get('flight.base_url');
 ?>
 
 <!-- Navbar -->
-<header class="shadow fixed-top">
+<header class="shadow shadow-lg fixed-top">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <!-- Logo -->
