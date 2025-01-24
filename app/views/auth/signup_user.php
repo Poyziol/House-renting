@@ -17,29 +17,40 @@ $baseUrl = Flight::get('flight.base_url');
                 </div>
             <?php endif; ?>
             <form action="<?= $baseUrl ?>/login/create-user" method="POST">
-                <!-- create name -->
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username"
-                        required>
-                </div>
-                <!-- create email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
-                        required>
-                </div>
-                <!-- create tel -->
-                <div class="mb-3">
-                    <label for="tel" class="form-label">Phone Number</label>
-                    <input type="tel" id="tel" name="tel" class="form-control" placeholder="Enter your phone number"
-                        required>
-                </div>
-                <!-- create password -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Create a password" required>
+                <div class="row g-3">
+                    <!-- create email -->
+                    <div class="col-md-12 col-12">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <!-- create name -->
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="Enter your username" required>
+                        </div>
+                    </div>
+                    <!-- create tel -->
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="tel" class="form-label">Phone Number</label>
+                            <input type="tel" id="tel" name="tel" class="form-control"
+                                placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    <!-- create password -->
+                    <div class="col-md-12 col-12">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="Create a password" required>
+                        </div>
+                    </div>
                 </div>
                 <!-- other -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
