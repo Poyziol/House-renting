@@ -34,3 +34,6 @@ Flight::map('userModel', function () {
 Flight::map('crudModel', function () {
     return new app\models\CrudModel(Flight::db());
 });
+
+// Another way
+Flight::register('houseModel', 'app\Models\HouseModel', [Flight::db()]);

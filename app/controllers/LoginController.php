@@ -53,7 +53,6 @@ class LoginController
 			Flight::redirect('/main');
 		} else {
 			$data = ['page' => 'user', 'message' => "Invalid username or password."];
-			// $data = ['page' => 'user', 'message' => $result['message']]; // Used for debugging 
 			Flight::render('auth/body', $data);
 		}
 	}
