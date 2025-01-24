@@ -5,6 +5,7 @@ $baseUrl = Flight::get('flight.base_url');
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@ $baseUrl = Flight::get('flight.base_url');
         background-image: url("<?= $baseUrl; ?>/assets/img/background.png");
         background-attachment: fixed;
     }
+
     .about-section {
         background-image: url("<?= $baseUrl; ?>/assets/img/background2.png");
         background-attachment: fixed;
@@ -52,7 +54,8 @@ $baseUrl = Flight::get('flight.base_url');
         <div class="container">
             <h1 class="display-4">Find Your Dream Home</h1>
             <p class="lead">Explore our listings and discover the perfect property for you.</p>
-            <button class="btn btn-primary btn-lg" onclick="location.href='<?= $baseUrl; ?>/login/user'">Start Now</button>
+            <button class="btn btn-primary btn-lg" onclick="location.href='<?= $baseUrl; ?>/login/user'">Start
+                Now</button>
         </div>
     </section>
 
@@ -71,11 +74,13 @@ $baseUrl = Flight::get('flight.base_url');
                         <img src="<?= $baseUrl; ?>/assets/img/carousel3.jpg" class="d-block w-100" alt="Property 3">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -86,8 +91,11 @@ $baseUrl = Flight::get('flight.base_url');
     <!-- About Section -->
     <section class="about-section text-center py-5 bg-light">
         <div class="container">
-            <h2>About Us</h2>
-            <p>We are committed to helping you find the perfect property. With years of experience in the real estate market, we bring you the best listings and customer service.</p>
+            <div class="bg-dark bg-opacity-50 p-4 rounded">
+                <h2 class="text-white">About Us</h2>
+                <p class="text-white">We are committed to helping you find the perfect property. With years of
+                    experience in the real estate market, we bring you the best listings and customer service.</p>
+            </div>
         </div>
     </section>
 
@@ -125,4 +133,5 @@ $baseUrl = Flight::get('flight.base_url');
         }
     </script>
 </body>
+
 </html>
