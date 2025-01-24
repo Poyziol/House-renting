@@ -48,3 +48,35 @@ $router->group('/admin', function () use ($router) {
 $router->group('/api', function () use ($router) {
     $router->get('/photos', [AdminController::class, 'getPhotos']);
 });
+
+
+
+// ----------------------------------------------------
+// Main: User-facing pages
+// ----------------------------------------------------
+$router->group('/main', function () use ($router) {
+    $router->get('/', [MainController::class, 'renderHouses']);
+    $router->get('/houses', [MainController::class, 'renderHouses']);
+    $router->get('/search', [MainController::class, 'searchHouses']);
+    $router->get('/house/@id', [MainController::class, 'renderHouseDetail']);
+    $router->post('/house/reserve', [MainController::class, 'reserveHouse']);
+});
+
+// ----------------------------------------------------
+// CRUD
+// ----------------------------------------------------
+// CREATE
+$router->group('/create', function () use ($router) {
+    $router->post("/house", [AdminController::class, 'createHouse']);
+});
+
+// UPDATE
+$router->group('/update', function () use ($router) {
+    $router->post("/house", [AdminController::class, 'updateHouse']);
+});
+
+// DELETE
+$router->group('/delete', function () use ($router) {
+    $router->get("/house", [AdminController::class, 'deleteHouse']);
+    $router->post("/photo", [AdminController::class, 'deleteHousePic']);
+});
