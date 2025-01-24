@@ -34,11 +34,18 @@ $router->group('/login', function() use ($router)
     $router->get('/logout', [LoginController::class,'logout']);
 });
 
-/**
- * Small remark:
- * Landing Page: More focused on a single objective (like capturing leads or promoting a product).
- * Home Page: Serves as the main navigation hub for the entire website
- * idk what to do so I made what's supposed to be the home page the MAIN page, change it if you think there could be a better option
- */
 
-
+// ----------------------------------------------------
+// Admin: Anything about what the user does
+// ----------------------------------------------------
+$router->group('/admin', function () use ($router) {
+    $router->get('/', [AdminController::class,'renderHouses']);
+    $router->get('/houses', [AdminController::class, 'renderHouses']);
+});
+    
+// ----------------------------------------------------
+// Ajax calls
+// ----------------------------------------------------
+$router->group('/api', function () use ($router) {
+    $router->get('/photos', [AdminController::class, 'getPhotos']);
+});

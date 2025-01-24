@@ -26,8 +26,8 @@ class LoginController
 	//send to login.php and replace $page with admin
 	public function admin()
 	{
-		$data = ['page' => "admin"];
-		Flight::render('auth/login', $data);
+		$data = ['page' => "signin_admin"];
+		Flight::render('auth/body', $data);
 	}
 
 	//send to login.php and replace $page with sign-up
@@ -42,10 +42,10 @@ class LoginController
 	{
 		$data = Flight::request()->data;
 
-		$username = $data->username;
+		$email = $data->email;
 		$password = $data->password;
 
-		$result = $this->user_model->check_user($email ,$username, $password, $tel);
+		$result = $this->user_model->check_user($email ,$password);
 
 		if ($result['message'] == 'success') {
 			// Made session start at bootstrap.php file
@@ -71,11 +71,35 @@ class LoginController
 			$_SESSION['user'] = $result['user'];
 			Flight::redirect('/admin');
 		} else {
-			$data = ['page' => 'user', 'message' => "Invalid username or password."];
-			Flight::render('auth/login', $data);
+			$data = ['page' => 'signin_admin', 'message' => "Invalid username or password."];
+			Flight::render('auth/body', $data);
 		}
 
 	}
+
+	public function login_sign() {
+        $data = Flight::request()->data;
+
+        $username = $data->username;
+        $email = $data->email;
+        $tel = $data->tel;
+        $password = $data->password;
+
+        try {
+            // Add user
+            $result = $this->user_model->login_sign($email, $username, $password, $tel);
+
+            if ($result['status'] === 'success') {
+                $data = ['page' => 'signin_user', 'message' => 'User created.'];
+                Flight::render('auth/body', $data);
+            } else {
+                $data = ['page' => 'signup_user', 'message' => $result['message']];
+                Flight::render('auth/body', $data);
+            }
+        } catch (\Exception $e) {
+            Flight::render('error', ['message' => "AuthController->signup_user(): " . $e-> getMessage()]);
+        }
+    }
 
 	public function logout() {
         session_destroy();

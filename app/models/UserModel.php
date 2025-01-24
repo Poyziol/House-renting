@@ -16,20 +16,14 @@ class UserModel
     }
 
     //Verify username and password of an user
-    function check_user($email,$name, $password, $tel)
+    function check_user($email, $password)
     {   
         // TODO: Understand why the named placeholder binding (:name) doesn't work
-        $query = "SELECT * FROM house_user WHERE name = ? and $email = ? and $tel = ? LIMIT 1";
+        $query = "SELECT * FROM house_user WHERE email = ? LIMIT 1";
         $data = $this->db->prepare($query); // PDOStatement object
-        $data->execute([$name]);
+        $data->execute([$email]);
 
         $user = $data->fetch(PDO::FETCH_ASSOC); // Using fetch because we are only fetching ONE ROW (we use fetchAll if it's all the rows we wanna fetch)
-        if (!$user) {
-            return ['message' => 'User not found'];
-        }
-        if (!$name) {
-            return ['message' => 'User not found'];
-        }
         if (!$user) {
             return ['message' => 'User not found'];
         }
@@ -57,62 +51,22 @@ class UserModel
     }
 
     //add an user with his new name and password
-    function add_user($new_name, $new_password)
-    {
-        $query = "SELECT * FROM gift_user WHERE gift_user = :new_name LIMIT 1";
-        $data = $this->db->prepare($query);
-        $data->bindParam(':new_name', $new_name, PDO::PARAM_STR);
-        $data->execute();
-
-        $user = $data->fetch(PDO::FETCH_ASSOC);
-        if ($user) {
-            return ['message' => 'Username already exist!'];
-        }
-
-        // We can just override the same variables 
-        $query = "INSERT INTO gift_user(name,password,is_admin) VALUES (:name,:password,0)";
-        $data = $this->db->prepare($query);
-        $data->bindParam(':name', $new_name, PDO::PARAM_STR);
-        $data->bindParam(':password', $new_password, PDO::PARAM_STR);
-
-        if ($data->execute()) {
-            return ['message' => 'success'];
-        } else {
-            return ['message' => 'sign in failed'];
-        }
-    }
-
-    public function removeUser($username, $password) {
-        $query = "SELECT * FROM gift_user WHERE name = ? LIMIT 1";
+    public function login_sign($email, $username, $tel, $password) {
+        // Check if that user already exist
+        $query = "SELECT * FROM house_user WHERE email = ? LIMIT 1";
         $STH = $this->db->prepare($query);
         $STH->execute([$username]);
         
-        if (!$STH->fetch(PDO::FETCH_ASSOC)) 
-            return ['status' => 'success', 'message' => 'Username removed'];
-        
-        return ['status' => 'error', 'message' => 'User doesn\'t exist'];
-    }
+        if ($STH->fetch(PDO::FETCH_ASSOC)) 
+            return ['status' => 'error', 'message' => 'Username already exists'];
 
-    /**
-     * ---------------------------
-     * Moves 
-     * ---------------------------
-     */
-    public function getUserBalance($id_user) {
-        $query = "SELECT current_balance FROM gift_user_balance_view WHERE id_user = ?";
+        // Insert 
+        $query = "INSERT INTO house_user (email, username, password, tel) VALUES (?, ?, ?, ?)"; // role is by default client
         $STH = $this->db->prepare($query);
-        $STH->execute([$id_user]);
-        $row = $STH->fetch(PDO::FETCH_ASSOC); // Fetch we only need: one row
-        return $row['current_balance'] ?? 0;
-    }
 
-    // Called in giftModel too
-    public function getActualUserBalance() {
-        if (!isset($_SESSION['user'])) {
-            $error = "You must be logged in to access the dashboard.";
-            Flight::render('error', ['message' => "AuthController->__construct(): " . $error]);
-        }
-        $user = $_SESSION['user'];
-        return $this->getUserBalance($user['id_user']);
+        if ($STH->execute([$email, $username, $password, $tel])) 
+            return ['status' => 'success', 'message' => 'New user registered'];
+
+        return ['status' => 'error', 'message' => 'Failed to register user'];
     }
 }
