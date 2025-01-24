@@ -73,9 +73,9 @@
         "house_type": "House Type",
 
         "description": "Description",
-        "bedrooms": "Chambres",
-        "rent_per_day": "Loyer par jour",
-        "neighborhood": "Quartier",
+        "bedrooms": "Rooms",
+        "rent_per_day": "Rent per day",
+        "neighborhood": "Neighborhood",
         "reserve_this_house": "Reserve this house",
         "arrival_date": "Arrival date",
         "departure_date": "Departure date",

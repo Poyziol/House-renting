@@ -1,16 +1,16 @@
 <div class="row align-items-start">
     <!-- Text Info -->
     <div class="col-md-5">
-        <h3 class="mb-3" data-translate="house_type"><?= $house['nom_type'] ?></h3>
-        <p data-translate="description"><?= $house['description'] ?></p>
+        <h3 class="mb-3"><?= $house['nom_type'] ?></h3>
+        <p><?= $house['description'] ?></p>
         <p>
-            <strong data-translate="rooms_label">Chambres</strong>: <?= $house['chambres'] ?>
+            <strong data-translate="rooms_label">Rooms</strong>: <?= $house['chambres'] ?>
         </p>
         <p>
-            <strong data-translate="rent_per_day_label">Loyer par jour</strong>: <?= $house['loyer_par_jour'] ?> €
+            <strong data-translate="rent_per_day_label">Rent per day</strong>: <?= $house['loyer_par_jour'] ?> €
         </p>
         <p>
-            <strong data-translate="neighborhood_label">Quartier</strong>: <?= $house['quartier'] ?>
+            <strong data-translate="neighborhood_label">Neighborhood</strong>: <?= $house['quartier'] ?>
         </p>
 
 
