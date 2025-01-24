@@ -19,6 +19,7 @@
         "forgot_password": "Forgot password?",
         "create_new_account": "Create new",
         "dont_have_account": "Don't have an account?",
+        "welcome_back_description": "Nice to see you again. Please log in or create an account to continue.",
 
         "username_placeholder": "Enter username",
         "username_label": "Username",
@@ -106,6 +107,7 @@
         "forgot_password": "Mot de passe oublié ?",
         "create_new_account": "Créer un nouveau",
         "dont_have_account": "Vous n'avez pas de compte ?",
+        "welcome_back_description": "Bienvenue. Connectez vous ou creez un compte.",
 
         "username_placeholder": "Entrez le nom d'utilisateur",
         "username_label": "Nom d'utilisateur",
