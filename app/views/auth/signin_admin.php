@@ -7,7 +7,7 @@
                     <div class="text-center">
                         <h4 class="mt-1 mb-3 pb-1 text-primary" data-translate="admin_login_page_title">Admin Login</h4>
                     </div>
-                    <form action="<?= $baseUrl ?>/login/check-admin" method="post">
+                    <form action="<?= $baseUrl ?>/login/check-admin" method="POST">
                         <p class="lead" data-translate="admin_login_prompt">Enter your admin credentials to access the
                             portal</p>
                         <div class="form-floating mb-3 mt-3">

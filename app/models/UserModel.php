@@ -35,16 +35,16 @@ class UserModel
     }
 
     //Verify username and password of an admin
-    function check_admin($name, $password)
+    function check_admin($email, $password)
     {
         // Does same things as the check_user so I just called it here
-        $result = $this->check_user($name, $password);
+        $result = $this->check_user($email, $password);
         if (!$result['message'] !== 'success') 
             return $result;
         
         $user = $result['user'];
-        if ($user['is_admin'] != 1) {
-            return ['message' => 'You are not amin'];
+        if ($user['role'] != 'admin') {
+            return ['message' => 'You are not admin'];
         }
 
         return ['message' => 'success', 'user' => $user];

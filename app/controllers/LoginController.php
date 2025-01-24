@@ -62,16 +62,16 @@ class LoginController
 	{
 		$data = Flight::request()->data;
 
-		$username = $data->username;
+		$email = $data->email;
 		$password = $data->password;
 
-		$result = $this->user_model->check_admin($username, $password);
+		$result = $this->user_model->check_admin($email, $password);
 
 		if ($result['message'] == 'success') {
 			$_SESSION['user'] = $result['user'];
 			Flight::redirect('/admin');
 		} else {
-			$data = ['page' => 'signin_admin', 'message' => "Invalid username or password."];
+			$data = ['page' => 'signin_admin', 'message' => $result['message']];
 			Flight::render('auth/body', $data);
 		}
 
