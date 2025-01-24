@@ -33,8 +33,8 @@ class LoginController
 	//send to login.php and replace $page with sign-up
 	public function sign_up()
 	{
-		$data = ['page' => "sign-up"];
-		Flight::render('auth/login', $data);
+		$data = ['page' => "signup_user"];
+		Flight::render('auth/body', $data);
 	}
 
 	//Authentificate username and password of an user
@@ -45,7 +45,7 @@ class LoginController
 		$username = $data->username;
 		$password = $data->password;
 
-		$result = $this->user_model->check_user($username, $password);
+		$result = $this->user_model->check_user($email ,$username, $password, $tel);
 
 		if ($result['message'] == 'success') {
 			// Made session start at bootstrap.php file
@@ -54,7 +54,7 @@ class LoginController
 		} else {
 			$data = ['page' => 'user', 'message' => "Invalid username or password."];
 			// $data = ['page' => 'user', 'message' => $result['message']]; // Used for debugging 
-			Flight::render('auth/login', $data);
+			Flight::render('auth/body', $data);
 		}
 	}
 

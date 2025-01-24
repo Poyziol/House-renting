@@ -1,7 +1,7 @@
-INSERT INTO house_user (username, password, role) VALUES
-('poyz', '123', 'admin'),
-('giga', '123', 'client'),
-('bryan', '123', 'client');
+INSERT INTO house_user (email, username, password, tel, role) VALUES
+('poyz@gmail.com', 'poyz', '123', 12345, 'admin'),
+('giga@gmail.com', 'giga', '123', 12345, 'client'),
+('bryan@gmail.com', 'bryan', '123', 12345, 'client');
 
 INSERT INTO house_type_habitation (nom_type) VALUES
 ('Maison'),

@@ -16,14 +16,20 @@ class UserModel
     }
 
     //Verify username and password of an user
-    function check_user($name, $password)
+    function check_user($email,$name, $password, $tel)
     {   
         // TODO: Understand why the named placeholder binding (:name) doesn't work
-        $query = "SELECT * FROM gift_user WHERE name = ? LIMIT 1";
+        $query = "SELECT * FROM house_user WHERE name = ? and $email = ? and $tel = ? LIMIT 1";
         $data = $this->db->prepare($query); // PDOStatement object
         $data->execute([$name]);
 
         $user = $data->fetch(PDO::FETCH_ASSOC); // Using fetch because we are only fetching ONE ROW (we use fetchAll if it's all the rows we wanna fetch)
+        if (!$user) {
+            return ['message' => 'User not found'];
+        }
+        if (!$name) {
+            return ['message' => 'User not found'];
+        }
         if (!$user) {
             return ['message' => 'User not found'];
         }

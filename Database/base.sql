@@ -7,8 +7,10 @@ DROP TABLE IF EXISTS house_user;
 
 CREATE TABLE house_user (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    tel INT NOT NULL,
     role ENUM('admin', 'client') NOT NULL DEFAULT 'client'
 );
 

@@ -1,0 +1,181 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    margin-top: 3%;
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    letter-spacing: 1px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+form .form-control {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* For Mobile Responsiveness */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .bg-primary {
+        height: 200px;
+        text-align: center;
+    }
+
+    .p-5 {
+        padding: 2rem;
+    }
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #007bff;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+/* Light theme */
+html[data-bs-theme="light"] footer,
+html[data-bs-theme="light"] header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Dark theme */
+html[data-bs-theme="dark"] footer,
+html[data-bs-theme="dark"] header {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* Light shadow with white color */
+}
+
+/* ---------------------------
+   Bootstrap classes in dark mode
+--------------------------- */
+
+html[data-bs-theme="dark"] .btn {
+    color: whitesmoke; 
+}
+[data-bs-theme="dark"] .shadow-lg {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 0 25px rgba(255, 255, 255, 0.05) !important; /* Lighter glow from the card */
+}
+
+/* ---------------------------
+   Theme toggler button
+--------------------------- */
+
+
+.theme-toggler {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    width: 60px; 
+    height: 30px; 
+    background-color: #f0f0f0; 
+    border-radius: 50px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* Thumb of the toggler */
+.theme-toggler .toggle-thumb {
+    width: 24px; 
+    height: 24px; 
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px; /* Start at the left side */
+    transition: left 0.3s ease;
+}
+
+/* Sun and Moon Icons */
+.theme-toggler .icon {
+    font-size: 16px; 
+    color: #555; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+/* Sun icon on the left */
+.theme-toggler .icon.sun {
+    left: 8px; 
+}
+/* Moon icon on the right */
+.theme-toggler .icon.moon {
+    right: 8px;
+}
+
+html[data-bs-theme="light"] .theme-toggler {
+    background-color: #333; 
+}
+html[data-bs-theme="dark"] .theme-toggler {
+    background-color: #f0f0f0; 
+}
+html[data-bs-theme="dark"] .theme-toggler .toggle-thumb {
+    left: 30px; /* Move the thumb to the right side in dark mode */
+    background-color: #333;
+}
+
+html[data-bs-theme="light"] .theme-toggler .icon {
+    color: #fff; 
+}
+html[data-bs-theme="dark"] .theme-toggler .icon {
+    color: #333; 
+}

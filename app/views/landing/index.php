@@ -12,6 +12,18 @@ $baseUrl = Flight::get('flight.base_url');
     <link rel="stylesheet" href="<?= $baseUrl; ?>/assets/framework/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $baseUrl; ?>/assets/css/landing.css">
 </head>
+
+<style>
+    .landing-section {
+        background-image: url("<?= $baseUrl; ?>/assets/img/background.png");
+        background-attachment: fixed;
+    }
+    .about-section {
+        background-image: url("<?= $baseUrl; ?>/assets/img/background4.png");
+        background-attachment: fixed;
+    }
+</style>
+
 <body>
 
     <!-- Header -->
