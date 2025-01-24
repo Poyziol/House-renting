@@ -57,15 +57,16 @@ class MainController
     }
 
     /*Reservations*/
-    public function reserveHouse($houseId)
+    public function reserveHouse()
     {
+        $habitationId = $_POST['habitationId'];
         $arrivalDate = $_POST['arrivalDate'];
         $departureDate = $_POST['departureDate'];
         $userId = $_SESSION['user']['user_id'];
 
-        if ($this->houseModel->isHouseAvailable($houseId, $arrivalDate, $departureDate)) {
+        if ($this->houseModel->isHouseAvailable($habitationId, $arrivalDate, $departureDate)) {
             $reservationData = [
-                'habitation_id' => $houseId,
+                'habitation_id' => $habitationId,
                 'user_id' => $userId,
                 'arrival_date' => $arrivalDate,
                 'departure_date' => $departureDate

@@ -1,14 +1,14 @@
 $(document).ready(function () {
+    const habitationId = $('#habitation_id').val();
+    const arrivalDate = $('#arrivalDate');
+    const departureDate = $('#departureDate');
+
     setDates();
     handlePics();
-    handleReservation();
+    handleReservation(habitationId);
 });
 
 function setDates() {
-    const $arrivalDate = $('#arrivalDate');
-    const $departureDate = $('#departureDate');
-
-    // Set today's date and the next day's date
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
@@ -17,14 +17,13 @@ function setDates() {
     const formatDate = (date) => date.toISOString().split('T')[0];
 
     // Set the values for the date inputs
-    $arrivalDate.val(formatDate(today));
-    $departureDate.val(formatDate(tomorrow));
+    arrivalDate.val(formatDate(today));
+    departureDate.val(formatDate(tomorrow));
 }
 
 function handlePics() {
     const mainPhoto = $('#mainPhotoContainer img');
     const thumbnails = $('#photoGallery .clickable-photo');
-    const errorMessage = $('#errorMessage');
 
     // Update main photo when a thumbnail is clicked
     thumbnails.on('click', function () {
@@ -36,23 +35,23 @@ function handlePics() {
     });
 }
 
-function handleReservation() {
+function handleReservation(habitationId) {
     $('#reservationForm').submit(function (event) {
         event.preventDefault();
         
-        const arrivalDate = $('#arrivalDate').val();
-        const departureDate = $('#departureDate').val();
-
         if (!arrivalDate || !departureDate) {
             $('#responseMessage').removeClass('d-none').text('Please select both arrival and departure dates.');
             $('#responseMessage').addClass('bg-grey');
             return;
         }
 
+        console.log(`${habitationId}, ${arrivalDate}, ${departureDate}, ${baseUrl}`);
+
         $.ajax({
-            url: `${baseUrl}/house/reservation`,
+            url: `${baseUrl}/main/house/reservation`,
             type: 'POST',
             data: {
+                habitationId: habitationId,
                 arrivalDate: arrivalDate,
                 departureDate: departureDate
             },

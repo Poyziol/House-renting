@@ -1,7 +1,9 @@
 <div class="row align-items-start">
     <!-- Text Info -->
-    <div class="col-md-5">
+    <div class="col-md-5" id="left-column">
         <h3 class="mb-3"><?= $house['nom_type'] ?></h3>
+        <!-- Used for js -->
+        <input type="hidden" id="habitation_id" value="<?= $house['habitation_id'] ?>">
         <p><?= $house['description'] ?></p>
         <p>
             <strong data-translate="rooms_label">Rooms</strong>: <?= $house['chambres'] ?>
@@ -14,8 +16,8 @@
         </p>
 
 
-        `<!-- Reservation Form -->
-        <form action="" id="reservationForm" class="mt-4 p-3 border rounded shadow-sm">
+        <!-- Reservation Form -->
+        <form action="<?= $baseUrl ?>/main/house/reserve" id="reservationForm" class="mt-5 p-3 border rounded shadow-sm">
             <h4 class="mb-3" data-translate="reserve_this_house">Reserve this house</h4>
             <div class="row g-3">
                 <div class="col-md-6 col-12">
@@ -33,8 +35,8 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary w-100" data-translate="reserve_now">Reserve Now</button>
-            <div id="responseMessage" class="mt-2 d-none"></div>
-        </form>`
+            <div id="responseMessage" class="mt-2 d-none px-3"></div>
+        </form>
 
     </div>
 
